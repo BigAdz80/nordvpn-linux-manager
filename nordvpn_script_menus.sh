@@ -14,7 +14,7 @@ foundservers=""
 chosen=""
 
 country=""
-protocol="TCP"
+protocol="UDP"
 servernumber=""
 
 # ----------------------------------------------
@@ -22,11 +22,15 @@ servernumber=""
 # ----------------------------------------------
 updateServers()
 {
-  printf "%s\n" "Downloading configuration files..."
-  # Download the servers list -# progressbar only -L use redirect (necessary)
-  curl -\# -L https://nordvpn.com/api/files/zip > $zip_conf_files
-  # Extract the files -d output folder -q silent
-  unzip -qu $zip_conf_files -d $zip_conf_folder
+    #delete the old folder
+    rm -rf $zip_conf_f
+    printf "%s\n" "Downloading configuration files..."
+    # Download the servers list -# progressbar only -L use redirect (necessary)
+    curl -\# -L https://nordvpn.com/api/files/zip > $zip_conf_files
+    # Extract the files -d output folder -q silent
+    unzip -qu $zip_conf_files -d $zip_conf_folder
+    #delete the zip file
+    rm $zip_conf_files
 }
 
 setCountry()
