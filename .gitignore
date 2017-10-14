@@ -1,4 +1,4 @@
 nordvpn/*
 *.opvn
-./credentials.txt
+credentials.txt
 *.directory
